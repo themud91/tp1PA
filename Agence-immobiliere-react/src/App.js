@@ -1,40 +1,30 @@
 import { useState } from "react";
 //import Accueil from "./components/Acceuil"; TYPO erreur
-import Accueil from "./components/Accueil"
 
+import NavBar from "./components/NavBar";
+import Contenu from "./components/Contenu";
 
+import styles from "./App.module.css";
 
-//test temporel 
-import Projets from "./components/Projets";
+export default function App() {
 
-
-function App() {
-  const [message, setMessage] = useState(
-    "Nous accompagnons nos clients dans leurs projets immobiliers."
-  );
-
-  const changerMessage = () => {
-    setMessage("Découvrez bientôt nos projets immobiliers.");
-  };
+  const [sectionActive, setSectionActive] = useState("accueil");
 
   return (
+    <div className={styles.app}>
 
-    //TEST 
+      <NavBar
+        sectionActive={sectionActive}
+        changerSection={setSectionActive}
+      />
 
-    <Projets
-    //erreur 2: titreSite n'existe pas, le nom correct est titre
-    // titreSite="Agence Horizon"
-    // titre="Agence Horizon"
-    //message={message}
+      <main>
+        <Contenu
+          sectionActive={sectionActive}
+          changerSection={setSectionActive}
+        />
+      </main>
 
-    // ici la sintaxys pour l'arrow function n'est pas correcte
-    // onChanger={() => changerMessage}
-    // correction:
-    //onChanger={changerMessage}
-
-
-    />
+    </div>
   );
 }
-
-export default App;
