@@ -1,7 +1,6 @@
-// les 12 projets immobiliers
+// les 12 projets immobiliers + donnees
 
-// consigne: "Données minimales pour les projets"
-// Chaque projet doit contenir :
+// consigne: Données minimales pour les projets, chaque projet doit contenir :
 // un identifiant unique
 // un titre
 // une ville ou un secteur
