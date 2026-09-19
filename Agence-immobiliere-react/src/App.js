@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Accueil from "./components/Acceuil";
+//import Accueil from "./components/Acceuil"; TYPO erreur
+import Accueil from "./components/Accueil"
 
 function App() {
   const [message, setMessage] = useState(
@@ -12,9 +13,17 @@ function App() {
 
   return (
     <Accueil
-      titreSite="Agence Horizon"
+    //erreur 2: titreSite n'existe pas, le nom correct est titre
+    // titreSite="Agence Horizon"
+    titre="Agence Horizon"
       message={message}
-      onChanger={() => changerMessage}
+
+      // ici la sintaxys pour l'arrow function n'est pas correcte
+      // onChanger={() => changerMessage}
+      // correction:
+      onChanger={changerMessage}
+
+
     />
   );
 }

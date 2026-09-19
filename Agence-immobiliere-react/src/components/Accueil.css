@@ -1,21 +1,28 @@
 .accueil {
-  padding: 30;
+  
+  /* erreur ici, le padding manque d'unite, correction: ajouter px */
+  padding: 30px;
 }
 
-.heros {
+/* typo ici, correction: heros --> hero */
+.hero {
   min-height: 320px;
   padding: 40px;
-  background-colour: #f3f4f6;
+
+  /* typo ici, correction: background-colour -->  background-color */
+  background-color: #f3f4f6;
   border-radius: 18px;
 }
 
+/* typo ici, correction:  font-weigth --> font-weight */
 .titre {
   margin-bottom: 16px;
-  font-weigth: 700;
+  font-weight: 700;
 }
 
 .description {
   max-width: 620px;
   margin-bottom: 24px;
-  text-align: centers;
+  /* typo ici, correction:   text-align: centers -->   text-align: center */
+  text-align: center;
 }

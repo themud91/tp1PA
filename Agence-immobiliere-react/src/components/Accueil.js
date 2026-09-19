@@ -1,10 +1,15 @@
 import { Container, Button } from "react-bootstrap";
-import "./Acceuil.css";
+// error typo Acceuil
+// import "./Acceuil.css";
+// correction:
+import "./Accueil.css";
 
 function Accueil({ titre, message, onChanger }) {
   return (
     <Container className="accueil">
-      <section className="hero">
+      
+      {/* error typo , dans le css la class s'appelle heros, correction dans le css */}
+        <section className="hero">
         <h1 className="titre">{titre}</h1>
 
         <p className="description">
@@ -13,7 +18,10 @@ function Accueil({ titre, message, onChanger }) {
 
         <Button
           variant="dark"
-          onclick={onChanger}
+          // error: la fonction onclick doit ete ecrit onClick c'est pour ca que le bouton ne marchait pas
+          // onclick={onChanger}
+          // correction:
+          onClick={onChanger}
         >
           Voir les projets
         </Button>
