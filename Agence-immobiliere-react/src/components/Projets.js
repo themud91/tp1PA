@@ -1,29 +1,133 @@
-//Compossant principale (avant Apps.js)
+//Compossant principale (comme react-first-test\src\components\ListeProgrammes.js)
 
 //imports
+import {
+    Row,
+    Col,
+    Button,
+    ButtonGroup,
+    Alert
+} from 'react-bootstrap';
+
 import { useState } from 'react';
 import ProjetCard from './ProjetCard';
 import { projets as projetsData } from '../data/projetsData';
+import styles from './Projets.module.css';
 
+
+// gerer affichage, filtre et retrait des projets
 function Projets() {
+    /* Etat = filtre */
+    const [filtre, setFiltre] = useState('tous');
+
+    /* Etat = list projets */
     const [projets, setProjets] = useState(projetsData);
-    // appellee de ProjetCard.js 
-    const onRetirerProjet = (id) => {
-        setProjets(projets.filter((p) => p.id !== id));
+
+    /* fonct changer filtre */
+    const choisirFiltre = (nouveauFiltre) => {
+        setFiltre(nouveauFiltre);
     };
 
+    /* css */
+    const variantFiltre = (valeur) => {
+        return filtre === valeur
+            ? 'success'
+            : 'outline-success';
+    };
+
+    /* filter projet */
+
+    const projetsAffiches = projets.filter(
+        (projet) => {
+            if (filtre === 'tous') {
+                return true;
+            }
+            return projet.type === filtre;
+        }
+    );
+
+
+    /* Retirer/supprimer un projet  */
+
+    const onRetirerProjet = (id) => {
+        const nouvelleListe = projets.filter(
+            (projet) => projet.id !== id
+        );
+        setProjets(nouvelleListe);
+
+    };
+
+
+    /* affichage (html) + FILTERS */
+
     return (
-        //cont principal, parcour la liste des projets pour afficher une carte par projet (segun id), avec la fonction pour retirer les projets
-        <div>
-            {projets.map((p) => (
-                <ProjetCard key={p.id} projet={p} onRetirerProjet={onRetirerProjet} />
+        <div className={styles.wrapper}>
 
-                // OJO: agregar filtro (state filtr + ButtonGroup + variant condicional),
-                // envolver el map en Row/Col de react-bootstrap, y mensaje Alert si la lista filtrada queda vacia
+            <div className={styles.toolbar}>
+                <h3 className={styles.title}>
+                    Nos projets
+                </h3>
+                <ButtonGroup>
+                    <Button
+                        variant={variantFiltre('tous')}
+                        onClick={() => choisirFiltre('tous')}>
+                        Tous
+                    </Button>
 
-            ))}
+                    <Button
+                        variant={variantFiltre('résidentiel')}
+                        onClick={() =>
+                            choisirFiltre('résidentiel')}>
+                        Résidentiel
+                    </Button>
+
+                    <Button
+                        variant={variantFiltre('commercial')}
+                        onClick={() =>
+                            choisirFiltre('commercial')}>
+                        Commercial
+                    </Button>
+
+                    <Button
+                        variant={variantFiltre('terrain')}
+                        onClick={() =>
+                            choisirFiltre('terrain')}>
+                        Terrain
+                    </Button>
+                </ButtonGroup>
+
+            </div>
+
+
+            {/* cas liste vide (aucun projet) */}
+
+            {projetsAffiches.length === 0 && (
+
+                <Alert
+                    variant="warning"
+                    className={styles.emptyMessage}>
+                    Aucun projet à afficher
+                    pour ce filtre.
+                </Alert>
+
+            )}
+
+
+            {/* Map / props */}
+
+            <Row className="g-4">
+                {projetsAffiches.map((projet) => (
+                    <Col
+                        md={6}
+                        lg={4}
+                        key={projet.id}>
+                        <ProjetCard
+                            projet={projet}
+                            onRetirerProjet={onRetirerProjet} />
+                    </Col>
+                ))}
+            </Row>
         </div>
     );
 }
-
 export default Projets;
