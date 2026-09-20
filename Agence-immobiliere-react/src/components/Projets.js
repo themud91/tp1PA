@@ -58,45 +58,48 @@ function Projets() {
     };
 
 
-    /* affichage (html) + FILTERS */
+    /* affichage (html wrapper) + FILTERS (avec choisirFiltre()) + style responsiveness (bootstrap xs={12} (mobile) et md="auto" breakpoint ≥768px) */
 
     return (
         <div className={styles.wrapper}>
 
-            <div className={styles.toolbar}>
-                <h3 className={styles.title}>
-                    Nos projets
-                </h3>
-                <ButtonGroup>
-                    <Button
-                        variant={variantFiltre('tous')}
-                        onClick={() => choisirFiltre('tous')}>
-                        Tous
-                    </Button>
+            <Row className="align-items-center mb-4 g-3">
+                <Col xs={12} md="auto">
+                    <h3 className={styles.title}>
+                        Nos projets
+                    </h3>
+                </Col>
+                <Col xs={12} md="auto">
+                    <ButtonGroup>
+                        <Button
+                            variant={variantFiltre('tous')}
+                            onClick={() => choisirFiltre('tous')}>
+                            Tous
+                        </Button>
 
-                    <Button
-                        variant={variantFiltre('résidentiel')}
-                        onClick={() =>
-                            choisirFiltre('résidentiel')}>
-                        Résidentiel
-                    </Button>
+                        <Button
+                            variant={variantFiltre('résidentiel')}
+                            onClick={() =>
+                                choisirFiltre('résidentiel')}>
+                            Résidentiel
+                        </Button>
 
-                    <Button
-                        variant={variantFiltre('commercial')}
-                        onClick={() =>
-                            choisirFiltre('commercial')}>
-                        Commercial
-                    </Button>
+                        <Button
+                            variant={variantFiltre('commercial')}
+                            onClick={() =>
+                                choisirFiltre('commercial')}>
+                            Commercial
+                        </Button>
 
-                    <Button
-                        variant={variantFiltre('terrain')}
-                        onClick={() =>
-                            choisirFiltre('terrain')}>
-                        Terrain
-                    </Button>
-                </ButtonGroup>
-
-            </div>
+                        <Button
+                            variant={variantFiltre('terrain')}
+                            onClick={() =>
+                                choisirFiltre('terrain')}>
+                            Terrain
+                        </Button>
+                    </ButtonGroup>
+                </Col>
+            </Row>
 
 
             {/* cas liste vide (aucun projet) */}

@@ -1,0 +1,37 @@
+ /* la gestion du responsiveness est gere par bootstrap */
+
+  .projetCard {
+    height: 100%;
+    padding: 15px;
+    border: 1px solid #e7ecef !important;
+    border-radius: 18px !important;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .projetCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+  }
+
+  .badge {
+    margin-bottom: 15px;
+    border: 1px solid #d6ede9;
+  }
+
+  .info {
+    color: #334155;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .description {
+    margin-top: 15px;
+    color: #64748b;
+    line-height: 1.7;
+  }
+
+  .prix {
+    color: #007f75;
+    font-weight: 600;
+  }
