@@ -2,12 +2,14 @@
 // Meme patternContainer/Row/Col (comme vu react-first-test\src\components\Contenu.js)
 import { Container, Row, Col, Card } from 'react-bootstrap';
 
+import styles from './Services.module.css';
+
 export default function Services() {
 
     return (
         <Container className="py-5">
 
-            <h2 className="mb-4">Nos services</h2>
+            <h2 className={`mb-4 ${styles.title}`}>Nos services</h2>
 
             <Row className="g-4">
 

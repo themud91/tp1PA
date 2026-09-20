@@ -1,0 +1,13 @@
+.title {
+    color: white;
+  }
+
+  .text {
+    color: #cbd5e1;
+    font-style: italic;
+  }
+
+  .image {
+    width: 100%;
+    border-radius: 12px;
+  }

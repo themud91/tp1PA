@@ -31,8 +31,8 @@ function Projets() {
     /* css */
     const variantFiltre = (valeur) => {
         return filtre === valeur
-            ? 'success'
-            : 'outline-success';
+            ? 'primary'
+            : 'outline-primary';
     };
 
     /* filter projet */

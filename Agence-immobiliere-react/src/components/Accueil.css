@@ -6,23 +6,29 @@
 
 /* typo ici, correction: heros --> hero */
 .hero {
-  min-height: 320px;
-  padding: 40px;
-
+  min-height: 300px;
+  padding: 50px;
   /* typo ici, correction: background-colour -->  background-color */
-  background-color: #f3f4f6;
-  border-radius: 18px;
+  background: linear-gradient(135deg, #170558 0%, #000000 100%);  
+  border-radius:120px;
 }
 
 /* typo ici, correction:  font-weigth --> font-weight */
 .titre {
+  color: white;
   margin-bottom: 16px;
-  font-weight: 700;
+  font-weight:900;
+  letter-spacing: 7px;
+  font-size: 5rem;
+  
 }
 
 .description {
+  color: white;
   max-width: 620px;
   margin-bottom: 24px;
   /* typo ici, correction:   text-align: centers -->   text-align: center */
   text-align: center;
+  font-style: italic;
+  font-size: 1.1rem;
 }

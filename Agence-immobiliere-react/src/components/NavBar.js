@@ -17,6 +17,7 @@ export default function NavBar({ sectionActive, changerSection }) {
         <Navbar
             expand="lg"
             sticky="top"
+            variant='dark'
             className={styles.navbar}>
 
             <Container>
