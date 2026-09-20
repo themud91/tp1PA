@@ -4,16 +4,18 @@ import { Container, Button } from "react-bootstrap";
 // correction:
 import "./Accueil.css";
 
-function Accueil({ titre, message, onChanger }) {
+//function Accueil({ titre, message, onChanger }) {
+
+function Accueil({ changerSection }) {
   return (
     <Container className="accueil">
-      
+
       {/* error typo , dans le css la class s'appelle heros, correction dans le css */}
-        <section className="hero">
-        <h1 className="titre">{titre}</h1>
+      <section className="hero">
+        <h1 className="titre">Agence Horizon</h1>
 
         <p className="description">
-          {message}
+          Nous accompagnons nos clients dans leurs projets immobiliers.
         </p>
 
         <Button
@@ -21,7 +23,9 @@ function Accueil({ titre, message, onChanger }) {
           // error: la fonction onclick doit ete ecrit onClick c'est pour ca que le bouton ne marchait pas
           // onclick={onChanger}
           // correction:
-          onClick={onChanger}
+          // onClick={onChanger}  
+          // 2eme fix: le bouton navigue vers Projets au lieu de changer le message local
+          onClick={() => changerSection('projets')}
         >
           Voir les projets
         </Button>
