@@ -31,12 +31,21 @@ export default function NavBar({ sectionActive, changerSection }) {
 
                 </Navbar.Brand>
 
-                <div className="ms-auto">
-                    <Menu
-                        sectionActive={sectionActive}
-                        changerSection={changerSection}
-                    />
-                </div>
+                {/* style burger-bouton hamburger + menu pour mobile */}
+                <Navbar.Toggle
+                    aria-controls="main-navbar"
+                    className={styles.toggle}
+                />
+
+
+                <Navbar.Collapse id="main-navbar">
+                    <div className="ms-auto">
+                        <Menu
+                            sectionActive={sectionActive}
+                            changerSection={changerSection}
+                        />
+                    </div>
+                </Navbar.Collapse>
             </Container>
         </Navbar>
     );
