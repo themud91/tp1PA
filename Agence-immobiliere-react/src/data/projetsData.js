@@ -1,4 +1,4 @@
-// les 12 projets immobiliers + donnees
+// les 12 projets immobiliers + donnees + ref aux img
 
 // consigne: Données minimales pour les projets, chaque projet doit contenir :
 // un identifiant unique
@@ -10,6 +10,18 @@
 // une information financiere ou de superficie
 // une image
 
+import LesErables from '../assets/projets/LesErables.jpg';
+import BoiseNord from '../assets/projets/BoiseNord.jpg';
+import Horizon from '../assets/projets/Horizon.jpg';
+import RiviereBleue from '../assets/projets/RiviereBleue.jpg';
+import IndustrielEst from '../assets/projets/IndustrielEst.jpg';
+import Carrefour from '../assets/projets/Carrefour.jpg';
+import VieuxPort from '../assets/projets/VieuxPort.jpg';
+import Agricole from '../assets/projets/Agricole.jpg';
+import LesAteliers from '../assets/projets/LesAteliers.jpg';
+import DomaineCedres from '../assets/projets/DomaineCedres.jpg';
+import TerrainAutoroute from '../assets/projets/TerrainAutoroute.jpg';
+import LeSommet from '../assets/projets/LeSommet.jpg';
 
 export const projets = [
 
@@ -21,7 +33,7 @@ export const projets = [
         statut: "en vente",
         description: "Complexe de condos modernes près du centre-ville.",
         prix: 350000,
-        image: "",
+        image: LesErables,
     },
 
     {
@@ -32,7 +44,7 @@ export const projets = [
         statut: "en développement",
         description: "Grand terrain à vocation résidentielle, proche des services.",
         prix: 180000,
-        image: "",
+        image: BoiseNord,
     },
     {
         id: 3,
@@ -42,7 +54,7 @@ export const projets = [
         statut: "en construction",
         description: "Immeuble de bureaux modernes au cœur du quartier des affaires.",
         prix: 4200000,
-        image: "",
+        image: Horizon,
     },
     {
         id: 4,
@@ -52,7 +64,7 @@ export const projets = [
         statut: "vendu",
         description: "Ensemble de maisons de ville avec accès direct au parc riverain.",
         prix: 425000,
-        image: "",
+        image: RiviereBleue,
     },
     {
         id: 5,
@@ -62,7 +74,7 @@ export const projets = [
         statut: "en vente",
         description: "Terrain zoné industriel, idéal pour entrepôt ou logistique.",
         prix: 950000,
-        image: "",
+        image: IndustrielEst,
     },
     {
         id: 6,
@@ -72,7 +84,7 @@ export const projets = [
         statut: "en vente",
         description: "Espaces commerciaux à louer ou acheter dans un centre achalandé.",
         prix: 2800000,
-        image: "",
+        image: Carrefour,
     },
     {
         id: 7,
@@ -82,7 +94,7 @@ export const projets = [
         statut: "en construction",
         description: "Condos de luxe avec vue sur le fleuve, finitions haut de gamme.",
         prix: 610000,
-        image: "",
+        image: VieuxPort,
     },
     {
         id: 8,
@@ -92,7 +104,7 @@ export const projets = [
         statut: "vendu",
         description: "Ancien terrain agricole reconverti pour développement résidentiel.",
         prix: 275000,
-        image: "",
+        image: Agricole,
     },
     {
         id: 9,
@@ -102,7 +114,7 @@ export const projets = [
         statut: "en développement",
         description: "Plaza commerciale multi-locataires en phase de planification.",
         prix: 1650000,
-        image: "",
+        image: LesAteliers,
     },
     {
         id: 10,
@@ -112,7 +124,7 @@ export const projets = [
         statut: "en vente",
         description: "Maisons unifamiliales dans un quartier familial paisible.",
         prix: 495000,
-        image: "",
+        image: DomaineCedres,
     },
     {
         id: 11,
@@ -122,7 +134,7 @@ export const projets = [
         statut: "en vente",
         description: "Terrain stratégique en bordure d'autoroute, fort potentiel commercial.",
         prix: 720000,
-        image: "",
+        image: TerrainAutoroute,
     },
     {
         id: 12,
@@ -132,6 +144,6 @@ export const projets = [
         statut: "vendu",
         description: "Ancien édifice à bureaux rénové, entièrement loué.",
         prix: 3100000,
-        image: "",
+        image: LeSommet,
     },
 ];

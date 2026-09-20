@@ -7,7 +7,6 @@ import {
     Badge
 } from 'react-bootstrap';
 
-//PENDIENTE terminar module.css
 import styles from './ProjetCard.module.css';
 
 export default function ProjetCard({
@@ -18,15 +17,15 @@ export default function ProjetCard({
     return (
 
         <Card className={styles.projetCard}>
-            <Card.Img variant="top" src={projet.image} />
+            <Card.Img variant="top" src={projet.image} className={styles.image} />
             <Card.Body>
 
-                {/* TITRE */}
+                {/* Titre */}
                 <Card.Title>
                     {projet.titre}
                 </Card.Title>
 
-                {/* TYPE */}
+                {/* Type */}
                 <Badge
                     bg="light"
                     text="dark"
@@ -37,28 +36,28 @@ export default function ProjetCard({
                 </Badge>
 
 
-                {/* VILLE ET STATUT */}
+                {/* Ville + status */}
                 <Card.Text
                     className={styles.info}
                 >
                     {projet.ville}, {projet.statut}
                 </Card.Text>
 
-                {/* DESCRIPTION */}
+                {/* Description */}
                 <Card.Text
                     className={styles.description}
                 >
                     {projet.description}
                 </Card.Text>
 
-                {/* PRIX */}
+                {/* Prx */}
                 <Card.Text
                     className={styles.prix}
                 >
                     {projet.prix} $
                 </Card.Text>
 
-                {/* ACTION */}
+                {/* Retirer */}
                 <Button
                     variant="outline-danger"
                     size="sm"
