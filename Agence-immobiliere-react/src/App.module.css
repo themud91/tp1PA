@@ -1,0 +1,12 @@
+/* styles du composant racine/structure generale de la page */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #111111;
+}
+
+.app main {
+  flex: 1;
+}
