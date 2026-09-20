@@ -31,7 +31,7 @@ export default function NavBar({ sectionActive, changerSection }) {
 
                 </Navbar.Brand>
 
-                {/* style burger-bouton hamburger + menu pour mobile */}
+                {/* style burger-bouton hamburger + menu pour mobile. Tout gere par bootstrap ici et pas par @media dans les css */}
                 <Navbar.Toggle
                     aria-controls="main-navbar"
                     className={styles.toggle}

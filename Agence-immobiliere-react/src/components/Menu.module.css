@@ -1,0 +1,29 @@
+/* j'ai decide de n'e pas utiliser @media. le Collapse de react-bootstrap gere deja l'affichage mobile/desktop donc je prefere de rester avec bootstrap.
+*/
+
+ .menu {
+    align-items: center;
+    gap: 8px;
+  }
+
+  .link {
+    color: #f5f7fa !important;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 14px !important;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+  }
+
+  .link:hover {
+    background-color: rgba(72, 132, 252, 0.15) !important;
+  }
+
+  .active {
+    color: white !important;
+    background-color: #4884fc !important;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 14px !important;
+    border-radius: 8px;
+  }
