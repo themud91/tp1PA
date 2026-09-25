@@ -8,79 +8,33 @@ export default function Menu({
     changerSection
 }) {
 
+    const sections = [
+        { id: 'accueil', label: 'Accueil' },
+        { id: 'projets', label: 'Projets' },
+        { id: 'services', label: 'Services' },
+        { id: 'apropos', label: 'À propos' },
+        { id: 'nousjoindre', label: 'Nous joindre' }
+    ];
+
     // gestion onclick/visuel des sections 
+    // modifie avec .map pour ne pas repetre le meme code
     return (
         <Nav className={styles.menu}>
-
-            {/* Accueil*/}
-            <Nav.Link
-                href="#"
-                className={sectionActive === 'accueil'
-                    ? styles.active
-                    : styles.link}
-                onClick={(event) => {
-                    event.preventDefault();
-                    changerSection('accueil');
-                }}
-            >
-                Accueil
-            </Nav.Link>
-
-            {/* Projets  */}
-            <Nav.Link
-                href="#"
-                className={sectionActive === 'projets'
-                    ? styles.active
-                    : styles.link}
-                onClick={(event) => {
-                    event.preventDefault();
-                    changerSection('projets');
-                }}
-            >
-                Projets
-            </Nav.Link>
-
-            {/* Services */}
-            <Nav.Link
-                href="#"
-                className={sectionActive === 'services'
-                    ? styles.active
-                    : styles.link}
-                onClick={(event) => {
-                    event.preventDefault();
-                    changerSection('services');
-                }}
-            >
-                Services
-            </Nav.Link>
-
-            {/* A Propos */}
-            <Nav.Link
-                href="#"
-                className={sectionActive === 'apropos'
-                    ? styles.active
-                    : styles.link}
-                onClick={(event) => {
-                    event.preventDefault();
-                    changerSection('apropos');
-                }}
-            >
-                À propos
-            </Nav.Link>
-
-            {/* Nous Joindre */}
-            <Nav.Link
-                href="#"
-                className={sectionActive === 'nousjoindre'
-                    ? styles.active
-                    : styles.link}
-                onClick={(event) => {
-                    event.preventDefault();
-                    changerSection('nousjoindre');
-                }}
-            >
-                Nous joindre
-            </Nav.Link>
+            {sections.map((section) => (
+                <Nav.Link
+                    key={section.id}
+                    href="#"
+                    className={sectionActive === section.id
+                        ? styles.active
+                        : styles.link}
+                    onClick={(event) => {
+                        event.preventDefault();
+                        changerSection(section.id);
+                    }}
+                >
+                    {section.label}
+                </Nav.Link>
+            ))}
         </Nav>
     );
 }
