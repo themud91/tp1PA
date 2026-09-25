@@ -15,6 +15,12 @@ import ProjetCard from './ProjetCard';
 import { projets as projetsData } from '../data/projetsData';
 import styles from './Projets.module.css';
 
+const filtres = [
+    { valeur: 'tous', label: 'Tous' },
+    { valeur: 'résidentiel', label: 'Résidentiel' },
+    { valeur: 'commercial', label: 'Commercial' },
+    { valeur: 'terrain', label: 'Terrain' }
+];
 
 // gerer affichage, filtre et retrait des projets
 function Projets() {
@@ -59,7 +65,9 @@ function Projets() {
     };
 
 
-    /* affichage (html wrapper) + FILTERS (avec choisirFiltre()) + style responsiveness (bootstrap xs={12} (mobile) et md="auto" breakpoint ≥768px) */
+    /* affichage (html wrapper) + FILTERS (avec choisirFiltre()) + style responsiveness (bootstrap xs={12} (mobile) et md="auto" breakpoint ≥768px) 
+    fix: code repete avec map()
+    */
 
     return (
         <div className={styles.wrapper}>
@@ -73,32 +81,14 @@ function Projets() {
                     </Col>
                     <Col xs={12} md="auto">
                         <ButtonGroup>
-                            <Button
-                                variant={variantFiltre('tous')}
-                                onClick={() => choisirFiltre('tous')}>
-                                Tous
-                            </Button>
-
-                            <Button
-                                variant={variantFiltre('résidentiel')}
-                                onClick={() =>
-                                    choisirFiltre('résidentiel')}>
-                                Résidentiel
-                            </Button>
-
-                            <Button
-                                variant={variantFiltre('commercial')}
-                                onClick={() =>
-                                    choisirFiltre('commercial')}>
-                                Commercial
-                            </Button>
-
-                            <Button
-                                variant={variantFiltre('terrain')}
-                                onClick={() =>
-                                    choisirFiltre('terrain')}>
-                                Terrain
-                            </Button>
+                            {filtres.map((filtre) => (
+                                <Button
+                                    key={filtre.valeur}
+                                    variant={variantFiltre(filtre.valeur)}
+                                    onClick={() => choisirFiltre(filtre.valeur)}>
+                                    {filtre.label}
+                                </Button>
+                            ))}
                         </ButtonGroup>
                     </Col>
                 </Row>
