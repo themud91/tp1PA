@@ -4,7 +4,29 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
 
 import styles from './Services.module.css';
 
+const services = [
+    {
+        id: 'acquisition',
+        titre: 'Acquisition de terrains',
+        description: 'Identification et achat de terrains a fort potentiel de developpement.'
+    },
+    {
+        id: 'financement',
+        titre: 'Financement de projets',
+        description: 'Financement et accompagnement des projets immobiliers residentiels et commerciaux.'
+    },
+    {
+        id: 'mise-en-marche',
+        titre: 'Mise en marche et vente',
+        description: 'Commercialisation et vente des proprietes une fois les projets completes.'
+    }
+];
+
+
 export default function Services() {
+
+
+    //code repete fixed avec .map()
 
     return (
         <Container className="py-5">
@@ -13,41 +35,16 @@ export default function Services() {
 
             <Row className="g-4">
 
-                <Col md={4}>
-                    <Card>
-                        <Card.Body>
-                            <Card.Title>Acquisition de terrains</Card.Title>
-                            <Card.Text>
-                                Identification et achat de terrains a fort potentiel de
-                                developpement.
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-
-                <Col md={4}>
-                    <Card>
-                        <Card.Body>
-                            <Card.Title>Financement de projets</Card.Title>
-                            <Card.Text>
-                                Financement et accompagnement des projets immobiliers
-                                residentiels et commerciaux.
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-
-                <Col md={4}>
-                    <Card>
-                        <Card.Body>
-                            <Card.Title>Mise en marche et vente</Card.Title>
-                            <Card.Text>
-                                Commercialisation et vente des proprietes une fois les projets
-                                completes.
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
+                {services.map((service) => (
+                    <Col md={4} key={service.id}>
+                        <Card>
+                            <Card.Body>
+                                <Card.Title>{service.titre}</Card.Title>
+                                <Card.Text>{service.description}</Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
 
             </Row>
 
