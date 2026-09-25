@@ -4,16 +4,13 @@ import { Container, Button } from "react-bootstrap";
 // correction:
 import "./Accueil.css";
 
-//function Accueil({ titre, message, onChanger }) {
-
 function Accueil({ changerSection }) {
   return (
     <Container className="accueil">
 
       {/* error typo , dans le css la class s'appelle heros, correction dans le css */}
       <section className="hero">
-        <h1 className="titre">Agence Horizon</h1>
-
+        <h1 className="titre fs-2 fs-md-1">Agence Horizon</h1>
         <p className="description">
           Nous accompagnons nos clients dans leurs projets immobiliers.
         </p>

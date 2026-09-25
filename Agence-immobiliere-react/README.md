@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Agence Horizon, TP1 Programmation avancée
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Auteur :** Guillermo Perez
+**TP :** PA-TP1.
 
-## Available Scripts
+## Commandes pour lancer l'application
 
-In the project directory, you can run:
+```bash
+npm install
+npm start
+```
 
-### `npm start`
+L'application démarre sur [http://localhost:3000](http://localhost:3000).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Analyse des besoins (version finale)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Fonctionnalités obligatoires
 
-### `npm test`
+Le site doit permettre à l'utilisateur de :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Naviguer entre les sections Accueil, Projets, Services, À propos et Nous joindre.
+- Consulter une présentation générale de l'agence et de ses activités.
+- Consulter la liste des projets immobiliers disponibles.
+- Consulter les informations essentielles de chaque projet.
+- Filtrer les projets affichés selon un critère pertinent (le type de projet).
+- Retirer un projet de la liste affichée.
+- Contacter l'agence à partir de la section Nous joindre.
 
-### `npm run build`
+### Informations affichées
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Pour chaque projet : un identifiant, un titre, une ville, un type, un statut, une courte description, une information financière (prix) et une image.
+- Une présentation générale de l'agence et de ses services offerts.
+- Les coordonnées de l'agence (adresse, téléphone, courriel).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Comportements attendus
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Le contenu change sans rechargement de la page lorsque l'utilisateur clique sur une section.
+- Seuls les projets correspondant au filtre choisi restent affichés.
+- Un message clair s'affiche lorsqu'aucun projet ne correspond au filtre choisi.
+- Un projet disparaît immédiatement de la liste lorsqu'il est retiré.
+- La section active et le filtre actif sont identifiables visuellement.
 
-### `npm run eject`
+### Contraintes de qualité
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Mise en page claire et cohérente d'une section à l'autre.
+- Apparence visuelle cohérente (couleurs, polices, espacement).
+- Site lisible et utilisable sur différentes tailles d'écran (mobile à ordinateur).
+- Retour visuel immédiat aux actions de l'utilisateur.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Arbre des composants (version finale)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+App (state: sectionActive)
+├── NavBar (props: sectionActive, changerSection)
+│   ├── LogoAgence
+│   └── Menu (props: sectionActive, changerSection)
+└── Contenu (props: sectionActive, changerSection)
+    ├── Accueil (props: changerSection)
+    ├── Projets (state: filtre, projets)
+    │   └── ProjetCard x12 (props: projet, onRetirerProjet)
+    ├── Services
+    ├── APropos
+    └── NousJoindre
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Description des composants principaux
 
-## Learn More
+- **App** : contient le state principal (`sectionActive`) et distribue les données aux enfants (`NavBar`, `Contenu`).
+- **NavBar** : affiche le logo et le menu de navigation, gère le collapse mobile (bouton hamburger) via React-Bootstrap.
+- **LogoAgence** : affiche le logo de l'agence.
+- **Menu** : affiche les liens de navigation et indique visuellement la section active.
+- **Contenu** : affiche la section active (Accueil, Projets, Services, À propos ou Nous joindre) par affichage conditionnel.
+- **Accueil** : présente l'agence et propose un bouton pour naviguer vers la section Projets.
+- **Projets** : gère le state de la liste de projets et du filtre actif, filtre les projets avec `filter()`, les affiche avec `map()` et gère leur retrait.
+- **ProjetCard** : composant réutilisable qui affiche les informations d'un projet reçu par props, et déclenche son retrait via une fonction reçue par props.
+- **Services** : présente les services offerts par l'agence.
+- **APropos** : présente la mission de l'agence.
+- **NousJoindre** : présente les coordonnées de l'agence.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Capture d'écran
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Aperçu de l'application](./screenshot.png)
 
-### Code Splitting
+## Sources des images
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Les 12 images des projets immobiliers (`src/assets/projets/`) proviennent de [Unsplash](https://unsplash.com/).

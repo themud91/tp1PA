@@ -2,6 +2,7 @@
 
 //imports
 import {
+    Container,
     Row,
     Col,
     Button,
@@ -63,73 +64,76 @@ function Projets() {
     return (
         <div className={styles.wrapper}>
 
-            <Row className="align-items-center mb-4 g-3">
-                <Col xs={12} md="auto">
-                    <h3 className={styles.title}>
-                        Nos projets
-                    </h3>
-                </Col>
-                <Col xs={12} md="auto">
-                    <ButtonGroup>
-                        <Button
-                            variant={variantFiltre('tous')}
-                            onClick={() => choisirFiltre('tous')}>
-                            Tous
-                        </Button>
-
-                        <Button
-                            variant={variantFiltre('résidentiel')}
-                            onClick={() =>
-                                choisirFiltre('résidentiel')}>
-                            Résidentiel
-                        </Button>
-
-                        <Button
-                            variant={variantFiltre('commercial')}
-                            onClick={() =>
-                                choisirFiltre('commercial')}>
-                            Commercial
-                        </Button>
-
-                        <Button
-                            variant={variantFiltre('terrain')}
-                            onClick={() =>
-                                choisirFiltre('terrain')}>
-                            Terrain
-                        </Button>
-                    </ButtonGroup>
-                </Col>
-            </Row>
-
-
-            {/* cas liste vide (aucun projet) */}
-
-            {projetsAffiches.length === 0 && (
-
-                <Alert
-                    variant="warning"
-                    className={styles.emptyMessage}>
-                    Aucun projet à afficher
-                    pour ce filtre.
-                </Alert>
-
-            )}
-
-
-            {/* Map / props */}
-
-            <Row className="g-4">
-                {projetsAffiches.map((projet) => (
-                    <Col
-                        md={6}
-                        lg={4}
-                        key={projet.id}>
-                        <ProjetCard
-                            projet={projet}
-                            onRetirerProjet={onRetirerProjet} />
+            <Container>
+                <Row className="align-items-center mb-4 g-3">
+                    <Col xs={12} md="auto">
+                        <h3 className={styles.title}>
+                            Nos projets
+                        </h3>
                     </Col>
-                ))}
-            </Row>
+                    <Col xs={12} md="auto">
+                        <ButtonGroup>
+                            <Button
+                                variant={variantFiltre('tous')}
+                                onClick={() => choisirFiltre('tous')}>
+                                Tous
+                            </Button>
+
+                            <Button
+                                variant={variantFiltre('résidentiel')}
+                                onClick={() =>
+                                    choisirFiltre('résidentiel')}>
+                                Résidentiel
+                            </Button>
+
+                            <Button
+                                variant={variantFiltre('commercial')}
+                                onClick={() =>
+                                    choisirFiltre('commercial')}>
+                                Commercial
+                            </Button>
+
+                            <Button
+                                variant={variantFiltre('terrain')}
+                                onClick={() =>
+                                    choisirFiltre('terrain')}>
+                                Terrain
+                            </Button>
+                        </ButtonGroup>
+                    </Col>
+                </Row>
+
+
+                {/* cas liste vide (aucun projet) */}
+
+                {projetsAffiches.length === 0 && (
+
+                    <Alert
+                        variant="warning"
+                        className={styles.emptyMessage}>
+                        Aucun projet à afficher
+                        pour ce filtre.
+                    </Alert>
+
+                )}
+
+
+                {/* Map / props */}
+
+                <Row className="g-4">
+                    {projetsAffiches.map((projet) => (
+                        <Col
+                            md={6}
+                            lg={4}
+                            key={projet.id}>
+                            <ProjetCard
+                                projet={projet}
+                                onRetirerProjet={onRetirerProjet} />
+                        </Col>
+                    ))}
+                </Row>
+
+            </Container>
         </div>
     );
 }
